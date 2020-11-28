@@ -1,0 +1,7 @@
+RewriteEngine On
+AddDefaultCharset UTF-8
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule (.+) index.php?page=$1
+
+

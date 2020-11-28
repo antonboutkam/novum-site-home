@@ -1,0 +1,21 @@
+{
+  "config_dir": "novum.home",
+  "namespace": "ApiNovumHome",
+  "site": {
+    "dev": {
+      "protocol": "http",
+      "domain": "home.innovatieapp.nl"
+    },
+    "test": {
+      "protocol": "https",
+      "domain": "home.test.demo.novum.nu"
+    },
+    "prod": {
+      "protocol": "https",
+      "domain": "home.demo.novum.nu"
+    }
+  },
+  "server_admin": "anton@novum.nu"
+}
+
+

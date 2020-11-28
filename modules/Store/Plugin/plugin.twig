@@ -1,0 +1,73 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Installable packages</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item">
+                            <a href="/store/plugins">Plugin store</a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="row">
+                    {% for package in installable_packages %}
+                        <div class="col-md-3">
+                        <!-- Box Comment -->
+                        <div class="card card-widget">
+                            <div class="card-header">
+                                <div class="user-block">
+
+                                    <img class="img-circle" src="/img/user1-128x128.jpg" alt="User Image">
+                                    <span class="username"><a href="mailto:">{{ package.authors[0].name }}</a></span>
+                                    <span class="description">Shared publicly - 7:30 PM Today</span>
+                                </div>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+
+                                <img class="img-fluid pad fill" src="{{ package.avatar_url|raw }}" alt="Photo">
+                                <span class="projectname">{{ package.name|raw }}</span>
+                                <p style="height:4.5rem;overflow: hidden;">{{ package.description|raw }}</p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-tools">
+                                    {% if package.is_installed  %}
+                                        <button type="button" class="btn btn-sm btn-default float-right" data-toggle="tooltip" title="Plugin installeren">
+                                            INSTALLED (v: {{ package.installed.getVersionName() }})
+                                        </button>
+                                    {% else %}
+                                        <button type="button" data-package="{{ package.name }}" class="install-btn btn btn-sm btn-success float-right" data-toggle="tooltip" title="Plugin installeren">
+                                            <i class="fa fa-download"></i>
+                                            INSTALL
+                                        </button>
+                                    {% endif %}
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+

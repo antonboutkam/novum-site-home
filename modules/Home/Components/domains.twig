@@ -1,0 +1,49 @@
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Installed domains</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body p-0">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th style="width:10px">#</th>
+                        <th style="width:100px;">System id</th>
+                        <th style="width:100px">Repository</th>
+                        <th style="width:350px">Plugin name</th>
+                        <th style="text-align: right">Settings</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for domain in domains %}
+                            <tr>
+                                <td>{{ loop.index }}.</td>
+                                <td>
+                                    <a target="_blank" title="Domain info" href="/domain/{{ domain.getComposer().getExtra().system_id }}">
+                                        {{ domain.getComposer().getExtra().system_id }}
+                                    </a>
+                                </td>
+                                <td>
+                                    {{ domain.getRepositoryType().getType() }}
+                                </td>
+                                <td>
+                                    {% if domain.getRepositoryType().getType() == 'composer' %}
+                                        <a target="_blank" href="https://packagist.org/packages/{{ domain.getComposer().getName() }}">{{ domain.getComposer().getName() }}</a>
+                                    {% else %}
+                                        {{ domain.getComposer().getName() }}
+                                    {% endif %}
+                                </td>
+                                <td style="text-align: right">
+                                    <a href="/domain/{{ domain.getComposer().getExtra().system_id }}">
+                                        settings
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
