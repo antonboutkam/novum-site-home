@@ -4,7 +4,7 @@
     "type": "novum-site",
     "require": {
         "novum/innovation-app-core": "*",
-        "novum/novum/domain-home" : "*",
+        "novum/domain-home" : "*",
         "hurah/hurah-installer": "*"
     },
     "license": "MIT",
