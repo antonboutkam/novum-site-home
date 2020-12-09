@@ -1,0 +1,61 @@
+<div class="col-md-6 mx-auto">
+    <!-- general form elements -->
+    <div class="card card-success">
+        {% include 'Wizard/form-header.twig' %}
+
+        <form role="form" method="post" action="{{ base_url }}/{{ next.getTag() }}">
+            {% include 'Wizard/hidden-fields.twig' %}
+
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="fld_vendor">Vendor name</label>
+                    <input type="text" class="form-control" name="data[vendor]" readonly value="novum" id="fld_vendor" placeholder="Will identify your organisation (example: novum)">
+
+                </div>
+
+                <div class="form-group">
+                    <label for="fld_vendor">Service name</label>
+                    <input type="text" class="form-control" name="data[service_name]" value="{{ data.service_name }}" id="fld_service_name" placeholder="Name of the service you are making">
+                </div>
+
+            </div>
+            {% include 'Wizard/form-footer.twig' %}
+        </form>
+    </div>
+
+    <div class="card card-secondary">
+        <div class="card-header">
+            <h3 class="card-title"><i class="fa fa-question-circle"></i> What should i fill in here?</h3>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <div class="card-body">
+
+            <dl class="row d-inline">
+                <dt class="col-sm-12 text-secondary"><i class="fa fa-lock"></i> Locked</dt>
+                <dd class="col-sm-12 text-secondary">
+                    The vendor name is currently locked on Novum, if you would do your own install this field would
+                    be mutable.
+
+                </dd>
+                <hr />
+
+                <dt class="col-sm-12">Vendor name</dt>
+                <dd class="col-sm-12">
+                    You can pick anything you like basically as long as it follows the following rules. The vendor name
+                    should be all lowercase and dashes for word separation. If you don't know what to use as a vendor
+                    name, your GitHub username is usually a good bet.
+                </dd>
+
+                <dt class="col-sm-12">Service name</dt>
+                <dd class="col-sm-12">
+                    While service names are case insensitive, the convention is all lowercase and dashes for word
+                    separation.  If you don't know what to use, try to describe your service in a single word.
+                </dd>
+
+            </dl>
+
+        </div>
+    </div>
+
+</div>

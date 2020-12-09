@@ -1,0 +1,62 @@
+<div class="col-md-6 mx-auto">
+    <!-- general form elements -->
+    <div class="card card-success">
+        {% include 'Wizard/form-header.twig' %}
+
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form role="form" method="post" action="{{ base_url }}/{{ next.getTag() }}">
+            {% include 'Wizard/hidden-fields.twig' %}
+
+            <div class="card-body">
+                <div class="row">
+                    <div class="form-group col-6">
+                        <label for="fld_first_name">Name</label>
+                        <input type="text" class="form-control" name="data[first_name]" id="fld_first_name" value="{{ data.first_name }}" placeholder="First name">
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="fld_last_name">Surname</label>
+                        <input type="text" class="form-control" name="data[last_name]v" id="fld_last_name" value="{{ data.last_name }}" placeholder="Last name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="fld_email">Email address</label>
+                    <input type="email" class="form-control" name="data[email]" id="fld_email" value="{{ data.email }}" placeholder="You will use this to sign in">
+                </div>
+                <div class="form-group">
+                    <label for="fld_password">Password</label>
+                    <input type="password" class="form-control" name="data[password]" id="fld_password" value="{{ data.password }}" placeholder="You will use this to sign in">
+                </div>
+            </div>
+            {% include 'Wizard/form-footer.twig' %}
+        </form>
+    </div>
+
+
+    <div class="card card-secondary">
+        <div class="card-header">
+            <h3 class="card-title"><i class="fa fa-info-circle"></i> Initial user account so you can sign in</h3>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <div class="card-body">
+
+            <dl class="row d-inline">
+                <dt class="col-sm-12">Almost done...</dt>
+                <dd class="col-sm-12">
+                    Once you have completed this step your system will be created in the background. This may take a
+                    couple of minutes so this would be a good time to get some coffee.
+                    <br>
+                    <br>
+                    You will receive an email notification when everything is set up. The provided password will
+                    allow you to sign into the admin panel.
+                </dd>
+
+            </dl>
+
+        </div>
+    </div>
+
+
+
+</div>

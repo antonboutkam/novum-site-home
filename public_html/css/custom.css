@@ -3,3 +3,6 @@ span.projectname{
     display: block;
     font-weight: 600;
 }
+.ml-0{
+    margin-left: 0!important;
+}

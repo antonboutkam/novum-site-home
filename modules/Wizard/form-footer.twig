@@ -1,0 +1,14 @@
+<!-- /.card-body -->
+<div class="card-footer">
+
+
+    {% if prev %}
+        <a type="submit" name="next" href="{{ base_url }}/{{ prev.getTag() }}?state={{ state_hash }}" class="btn btn-secondary float-left">
+            Back
+        </a>
+    {% endif %}
+
+    <button type="submit" class="btn btn-primary float-right">Next</button>
+
+
+</div>

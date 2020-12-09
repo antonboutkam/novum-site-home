@@ -1,0 +1,74 @@
+<div class="col-md-6 mx-auto">
+    <!-- general form elements -->
+    <div class="card card-success">
+        {% include 'Wizard/form-header.twig' %}
+
+        <!-- /.card-header -->
+        <!-- form start -->
+        <form role="form" method="post" action="{{ base_url }}/{{ next.getTag() }}">
+            {% include 'Wizard/hidden-fields.twig' %}
+
+            <div class="card-body">
+
+                <div class="form-group">
+                    <label for="fld_api_url">Api url</label>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-globe"></i></span>
+                        </div>
+                        <input type="text" disabled name="data[api_url]" value="{{ data.api_url }}" id="fld_api_url" class="form-control" placeholder="Base url of your API">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="fld_admin_url">Admin panel</label>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-globe"></i></span>
+                        </div>
+                        <input type="text" disabled name="data[admin_url]" value="{{ data.admin_url }}" id="fld_admin_url" class="form-control" placeholder="Url of your admin panel">
+                    </div>
+                </div>
+
+            </div>
+            {% include 'Wizard/form-footer.twig' %}
+        </form>
+    </div>
+
+    <div class="card card-secondary">
+        <div class="card-header">
+            <h3 class="card-title"><i class="fa fa-question-circle"></i> What should i do with these?</h3>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <div class="card-body">
+
+            <dl class="row d-inline">
+
+                <dt class="col-sm-12 text-secondary"><i class="fa fa-lock"></i> Locked</dt>
+                <dd class="col-sm-12 text-secondary">
+                    These url's are immutable because you are running this code on a server that is owned by
+                    <a href="https://novum.nu">Novum</a> and we have no control over your DNS settings. so we have
+                    based these url's on the service name.<Br>
+                    <Br>
+                    If you install your own copy these fields are unlocked.
+
+                </dd>
+                <hr />
+                <dt class="col-sm-12">API url</dt>
+                <dd class="col-sm-12">
+                   This will be the main URL of your API and you should probably write this down somewhere.
+                </dd>
+
+                <dt class="col-sm-12">Admin url</dt>
+                <dd class="col-sm-12">
+                    Via the admin panel you will be able to set up a data model and configure the API's and all that
+                    stuff.
+                </dd>
+            </dl>
+        </div>
+    </div>
+
+</div>

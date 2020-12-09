@@ -6,6 +6,7 @@ use Core\DeferredAction;
 use Core\IControllerFactory;
 use Core\MainController;
 use Exception\LogicException;
+use NovumHome\Wizard\Controller;
 
 class ControllerFactory extends _DefaultControllerFactory implements IControllerFactory
 {
@@ -24,10 +25,13 @@ class ControllerFactory extends _DefaultControllerFactory implements IController
         {
         	$oController = new \NovumHome\Home\Controller($aGet, $aPost);
         }
+        else if(preg_match('/^\/new/', $sRequestUri))
+        {
+            $oController = new Controller($aGet, $aPost);
+        }
         else if($sRequestUri == '/store/plugins')
         {
             $oController = new \NovumHome\Store\Plugin\Controller($aGet, $aPost);
-
         }
 
         if(!$oController instanceof MainController)

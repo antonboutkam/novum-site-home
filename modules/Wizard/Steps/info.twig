@@ -1,0 +1,98 @@
+<div class="col-md-6 mx-auto">
+    <!-- general form elements -->
+    <div class="card card-success">
+        {% include 'Wizard/form-header.twig' %}
+
+        <form role="form" method="post" action="{{ base_url }}/{{ next.getTag() }}">
+            {% include 'Wizard/hidden-fields.twig' %}
+
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="fld_homepage">Documentation url</label>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-globe"></i></span>
+                        </div>
+                        <input type="text" name="data[homepage]" id="fld_homepage" value="{{ data.homepage }}" class="form-control" placeholder="Website about your service">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="form-group">
+                        <label for="fld_description">Description</label>
+                        <textarea name="data[description]" id="fld_description" class="form-control" rows="3" placeholder="Enter ...">{{ data.description }}</textarea>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="form-group">
+                        <label for="fld_keywords">Keywords</label>
+                        <input type="text" name="data[keywords]" id="fld_keywords" class="form-control" value="{{ data.keywords }}" placeholder="Keywords">
+
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="form-group">
+                        <label for="fld_license">License</label>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-balance-scale"></i></span>
+                            </div>
+
+                            <select id="fld_license" name="data[license]" class="form-control">
+                                {% for license in licenses %}
+                                    <option {{ data.license == license ? 'selected' }}>{{ license }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% include 'Wizard/form-footer.twig' %}
+        </form>
+    </div>
+
+
+    <div class="card card-secondary">
+        <div class="card-header">
+            <h3 class="card-title"><i class="fa fa-question-circle"></i> What should i fill in here?</h3>
+        </div>
+        <!-- /.card-header -->
+        <!-- form start -->
+        <div class="card-body">
+
+            <dl class="row d-inline">
+                <dt class="col-sm-12">Documentation url</dt>
+                <dd class="col-sm-12">
+                    The REST api will have generated documentation about each endpoint and all the ways to communicate
+                    with it. The documentation URL should point to a website or page that holds or will hold information
+                    about the service it self, so what can you do with it rather then how to interact with it.
+                </dd>
+
+                <dt class="col-sm-12">Description</dt>
+                <dd class="col-sm-12">
+                    A short description of the service. Usually this is one line long. You can add mode detailed
+                    information to the README file that is generated lateron.
+                </dd>
+
+                <dt class="col-sm-12">Keywords</dt>
+                <dd class="col-sm-12">
+                    A comma separated list of keywords that the package is related to. These can be used for searching
+                    and filtering.
+                </dd>
+
+                <dt class="col-sm-12">License</dt>
+                <dd class="col-sm-12">
+                    Everything may be shared so only open source licenses are available at the moment. For details on
+                    what to choose please refer to the internet
+                    <a target="_blank" title="Information about opensoure software licenses" href="https://opensource.org/licenses">this is a good resource</a>.
+                </dd>
+            </dl>
+
+        </div>
+    </div>
+
+</div>

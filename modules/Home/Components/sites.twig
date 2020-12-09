@@ -13,11 +13,12 @@
                         <th style="width:10px">#</th>
                         <th style="width:100px;">System id</th>
                         <th style="width:100px">Repository</th>
-                        <th style="width:350px">Plugin name</th>
+                        <th style="width:300px;white-space:nowrap">Plugin name</th>
                         <th style="width:20px">Env</th>
-                        <th>Url</th>
-
+                        <th style="width:90%;">Url</th>
+                        {#
                         <th style="width: 40px">Settings</th>
+                        #}
                     </tr>
                 </thead>
                 <tbody>
@@ -33,7 +34,7 @@
                                 <td>
                                     {{ site.getRepositoryType().getType() }}
                                 </td>
-                                <td>
+                                <td style="width:300px;white-space:nowrap">
                                     {% if site.getRepositoryType().getType() == 'composer' %}
                                         <a target="_blank" href="https://packagist.org/packages/{{ site.getComposer().getName() }}">{{ site.getComposer().getName() }}</a>
                                     {% else %}
@@ -46,11 +47,13 @@
                                         {{ site.getSite().getDomain('prod')['protocol'] }}://{{ site.getSite().getDomain(env)['domain'] }}
                                     </a>
                                 </td>
+                                {#
                                 <td>
                                     <a target="_blank" href="/site/{{ site.getSite().getDomain(env)['domain'] }}">
                                         Settings
                                     </a>
                                 </td>
+                                #}
                             </tr>
                         {% endfor %}
                     {% endfor %}

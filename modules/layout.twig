@@ -22,8 +22,11 @@
 <!-- Site wrapper -->
 <div class="wrapper">
     {% include 'modules/top-bar.twig' %}
-    {% include 'modules/side-bar.twig' %}
 
+    {#
+        remove ml-0 from content|raw elements to show sidebar again also
+    {% include 'modules/side-bar.twig' %}
+    #}
     <!-- Main Sidebar Container -->
 
 
